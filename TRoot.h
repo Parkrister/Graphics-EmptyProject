@@ -44,13 +44,15 @@ public:
 
 class TChart :public TRoot {
 protected:
-	std::stack<TLine> st;
+	stack<TLine> st;
 	TRoot* pFirst, * pLast;
 public:
 	TChart() { pFirst = pLast = NULL; }
 	virtual void Show(Graphics^ gr);
 	virtual void Hide(Graphics^ gr);
 	int GetSize() { return (bool)pFirst + (bool)pLast; }
+	TRoot* GetFirst() { return pFirst; }
+	TRoot* GetLast() { return pLast; }
 	void SetFirst(TRoot* p) {
 		TPoint* pPoint = dynamic_cast<TPoint*>(p);
 		TChart* pChart = dynamic_cast<TChart*>(p);
